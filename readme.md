@@ -16,5 +16,5 @@ The tutorial related to this project can be found on [Codeaches Website]
 
 [Codeaches Website]: https://codeaches.com
 
-[Travis badge]: https://img.shields.io/travis/codeaches/java8-examples/master.svg?label=Travis%20Code%20Build&style=flat
-[Travis]: https://travis-ci.org/codeaches/java8-examples/builds
+[Travis badge]: https://img.shields.io/travis/codeaches/java-8-examples/master.svg?label=Travis%20Code%20Build&style=flat
+[Travis]: https://travis-ci.org/codeaches/java-8-examples/builds
