@@ -16,73 +16,73 @@ public class CollectorsExample {
 		/*------------------------------------------------
 		Filtering a Stream
 		------------------------------------------------*/
-		List<Account> checkingAccounts = accounts.stream()
-				.filter(account -> account.getAccountType().equals("Checking")).collect(Collectors.toList());
+		List<Car> toyotaCars = cars.stream().filter(car -> car.getManufacturer().equals("Toyota"))
+				.collect(Collectors.toList());
 
-		System.out.println(checkingAccounts);
+		System.out.println(toyotaCars);
 
 		/*------------------------------------------------
 		Converting a Stream to a Map
 		------------------------------------------------*/
-		Map<String, Account> accountMap = accounts.stream()
-				.collect(Collectors.toMap(Account::getAccountNumber, Function.identity()));
+		Map<String, Car> carMap = cars.stream().collect(Collectors.toMap(Car::getModel, Function.identity()));
 
-		System.out.println(accountMap);
+		System.out.println(carMap);
 
 		/*------------------------------------------------
 		Calculating averages
 		------------------------------------------------*/
-		Double average = accounts.stream().collect(Collectors.averagingDouble(Account::getBalance));
+		Double averagePrice = cars.stream().collect(Collectors.averagingDouble(Car::getPrice));
 
-		System.out.println(average);
+		System.out.println(averagePrice);
 
 		/*------------------------------------------------
 		Calculating sum
 		------------------------------------------------*/
-		Double sum = accounts.stream().collect(Collectors.summingDouble(Account::getBalance));
+		Double totalPrice = cars.stream().collect(Collectors.summingDouble(Car::getPrice));
 
-		System.out.println(sum);
+		System.out.println(totalPrice);
 
 		/*------------------------------------------------
 		Calculating sum for each of the group
 		------------------------------------------------*/
-		Map<String, Double> sumByAccountType = accounts.stream()
-				.collect(Collectors.groupingBy(Account::getAccountType, Collectors.summingDouble(Account::getBalance)));
+		Map<String, Double> totalPriceByManufacturer = cars.stream()
+				.collect(Collectors.groupingBy(Car::getManufacturer, Collectors.summingDouble(Car::getPrice)));
 
-		System.out.println(sumByAccountType);
+		System.out.println(totalPriceByManufacturer);
 
 		/*------------------------------------------------
 		Get maximum and minimum element
 		------------------------------------------------*/
-		Comparator<Account> accountBalanceComparator = (act1, act2) -> Double.compare(act2.getBalance(),
-				act1.getBalance());
-		Optional<Account> acctsWithMinBalance = accounts.stream().collect(Collectors.maxBy(accountBalanceComparator));
+		Comparator<Car> costliestCarComparator = (car1, car2) -> Double.compare(car1.getPrice(), car2.getPrice());
+		Optional<Car> costliestCar = cars.stream().collect(Collectors.maxBy(costliestCarComparator));
 
-		System.out.println(acctsWithMinBalance.get());
+		System.out.println(costliestCar.get());
 
-		/*------------------------------------------------
-		Partition the stream
-		------------------------------------------------*/
-		Predicate<Account> checkingAcctPredicate = account -> account.getAccountType().equals("Checking");
+		Optional<Car> cheapestCar = cars.stream().collect(Collectors.minBy(costliestCarComparator));
 
-		Map<Boolean, List<Account>> mapyByAccountType = accounts.stream()
-				.collect(Collectors.partitioningBy(checkingAcctPredicate));
-
-		System.out.println(mapyByAccountType);
+		System.out.println(cheapestCar.get());
 
 		/*------------------------------------------------
 		Concatenate
 		------------------------------------------------*/
-		String accountNumbers = accounts.stream().map(Account::getAccountNumber).collect(Collectors.joining(", "));
-		System.out.println(accountNumbers);
+		String models = cars.stream().map(Car::getModel).collect(Collectors.joining(", "));
+		System.out.println(models);
 
+		/*------------------------------------------------
+		Partition the stream
+		------------------------------------------------*/
+		Predicate<Car> manufacturerPredicate = car -> car.getManufacturer().equals("Toyota");
+
+		Map<Boolean, List<Car>> mapyByManufacturer = cars.stream()
+				.collect(Collectors.partitioningBy(manufacturerPredicate));
+
+		System.out.println(mapyByManufacturer);
 	}
 
-	static List<Account> accounts = new ArrayList<>();
-
+	static List<Car> cars = new ArrayList<>();
 	static {
-		accounts.add(new Account("John", "8001", "Savings", Double.valueOf(50.00)));
-		accounts.add(new Account("Matt", "8002", "Savings", Double.valueOf(37.00)));
-		accounts.add(new Account("Debra", "7001", "Checking", Double.valueOf(45.00)));
+		cars.add(new Car("Toyota", "Corolla", 2013, Double.valueOf(21000.00)));
+		cars.add(new Car("Toyota", "Camry", 2018, Double.valueOf(24000.00)));
+		cars.add(new Car("Mercedes", "Benz", 2019, Double.valueOf(40000.00)));
 	}
 }

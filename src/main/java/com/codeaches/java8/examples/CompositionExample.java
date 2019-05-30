@@ -43,6 +43,7 @@ public class CompositionExample {
 	}
 
 	static List<Car> cars = new ArrayList<>();
+
 	static {
 		cars.add(new Car("Toyota", "Corolla", 2013, Double.valueOf(21000.00)));
 		cars.add(new Car("Toyota", "Camry", 2018, Double.valueOf(24000.00)));
