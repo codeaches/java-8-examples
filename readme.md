@@ -1,5 +1,6 @@
 [![License MIT][MIT badge]][MIT]
 [![Travis Build][Travis badge]][Travis]
+[![CircleCI Build][CircleCI badge]][CircleCI]
 [![][Paypal Donate Img]][Paypal Donate Link]
 
 The **current** version of this project is licensed under [MIT].
@@ -18,3 +19,6 @@ The tutorial related to this project can be found on [Codeaches Website]
 
 [Travis badge]: https://img.shields.io/travis/codeaches/java-8-examples/master.svg?label=Travis%20Code%20Build&style=flat
 [Travis]: https://travis-ci.org/codeaches/java-8-examples/builds
+
+[CircleCI badge]: https://circleci.com/gh/codeaches/java-8-examples.svg?style=svg
+[CircleCI]: https://circleci.com/gh/codeaches/java-8-examples
