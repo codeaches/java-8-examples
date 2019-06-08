@@ -12,9 +12,7 @@ public class CompletableFutureExample {
 	public static void basicCompletableFuture() throws InterruptedException, ExecutionException {
 
 		// Some heavy computation which eventually returns an Integer
-		Supplier<Integer> heavyMethod = () -> {
-			return 10;
-		};
+		Supplier<Integer> heavyMethod = () -> 10;
 
 		CompletableFuture<Integer> asyncFunction = CompletableFuture.supplyAsync(heavyMethod);
 
@@ -26,14 +24,10 @@ public class CompletableFutureExample {
 	public static void completableFutureWithCallback() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
-		Supplier<Integer> heavyMethod = () -> {
-			return 10;
-		};
+		Supplier<Integer> heavyMethod = () -> 10;
 
 		// Print the request
-		Consumer<Integer> printer = (x) -> {
-			System.out.println(x);
-		};
+		Consumer<Integer> printer = (x) -> System.out.println(x);
 
 		CompletableFuture<?> asyncFunction = CompletableFuture.supplyAsync(heavyMethod).thenAccept(printer);
 
@@ -43,19 +37,13 @@ public class CompletableFutureExample {
 	public static void completableFutureWithCallbackChain() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
-		Supplier<Integer> heavyMethod = () -> {
-			return 10;
-		};
+		Supplier<Integer> heavyMethod = () -> 10;
 
 		// multiply the input and return the result
-		Function<Integer, Integer> multiply = (x) -> {
-			return x * x;
-		};
+		Function<Integer, Integer> multiply = (x) -> x * x;
 
 		// Print the request
-		Consumer<Integer> printer = (x) -> {
-			System.out.println(x);
-		};
+		Consumer<Integer> printer = (x) -> System.out.println(x);
 
 		CompletableFuture<?> asyncFunction = CompletableFuture.supplyAsync(heavyMethod).thenApply(multiply)
 				.thenAccept(printer);
@@ -66,24 +54,16 @@ public class CompletableFutureExample {
 	public static void completableFutureWithParallelCallbacks() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
-		Supplier<Integer> heavyMethod = () -> {
-			return 10;
-		};
+		Supplier<Integer> heavyMethod = () -> 10;
 
 		// add
-		Function<Integer, Integer> add = (x) -> {
-			return x + x;
-		};
+		Function<Integer, Integer> add = (x) -> x + x;
 
 		// multiply
-		Function<Integer, Integer> multiply = (x) -> {
-			return x * x;
-		};
+		Function<Integer, Integer> multiply = (x) -> x * x;
 
 		// Print the request
-		Consumer<Integer> printer = (x) -> {
-			System.out.println(x);
-		};
+		Consumer<Integer> printer = (x) -> System.out.println(x);
 
 		CompletableFuture<Integer> asyncFunction = CompletableFuture.supplyAsync(heavyMethod);
 
@@ -97,14 +77,10 @@ public class CompletableFutureExample {
 			throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually throws NULL POINTER EXCEPTION
-		Supplier<String> heavyMethod = () -> {
-			return ((String) null).toUpperCase();
-		};
+		Supplier<String> heavyMethod = () -> ((String) null).toUpperCase();
 
 		// Print the message
-		Consumer<String> printer = (x) -> {
-			System.out.println("PRINT MSG: " + x);
-		};
+		Consumer<String> printer = (x) -> System.out.println("PRINT MSG: " + x);
 
 		CompletableFuture<Void> asyncFunction = CompletableFuture.supplyAsync(heavyMethod)
 
@@ -120,9 +96,7 @@ public class CompletableFutureExample {
 			throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually throws NULL POINTER EXCEPTION
-		Supplier<String> heavyMethod = () -> {
-			return ((String) null).toUpperCase();
-		};
+		Supplier<String> heavyMethod = () -> ((String) null).toUpperCase();
 
 		// Print the message
 		Consumer<String> printer = (x) -> {
@@ -145,19 +119,13 @@ public class CompletableFutureExample {
 	public static void completableFutureWithThenCombine() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
-		Supplier<Integer> heavyMethod1 = () -> {
-			return 10;
-		};
+		Supplier<Integer> heavyMethod1 = () -> 10;
 
 		// Heavy computation which eventually returns an Integer
-		Supplier<Integer> heavyMethod2 = () -> {
-			return 15;
-		};
+		Supplier<Integer> heavyMethod2 = () -> 15;
 
 		// Print the request
-		Consumer<Integer> printer = (x) -> {
-			System.out.println(x);
-		};
+		Consumer<Integer> printer = (x) -> System.out.println(x);
 
 		CompletableFuture<Integer> asyncFunction1 = CompletableFuture.supplyAsync(heavyMethod1);
 		CompletableFuture<Integer> asyncFunction2 = CompletableFuture.supplyAsync(heavyMethod2);
@@ -174,45 +142,35 @@ public class CompletableFutureExample {
 	public static void completableFutureWithRunAfterBoth() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
-		Supplier<Integer> heavyMethod1 = () -> {
-			return 10;
-		};
+		Supplier<Integer> heavyMethod1 = () -> 10;
 
 		// Heavy computation which eventually returns an Integer
-		Supplier<Integer> heavyMethod2 = () -> {
-			return 15;
-		};
+		Supplier<Integer> heavyMethod2 = () -> 15;
 
 		CompletableFuture<Integer> asyncFunction1 = CompletableFuture.supplyAsync(heavyMethod1);
 		CompletableFuture<Integer> asyncFunction2 = CompletableFuture.supplyAsync(heavyMethod2);
 
-		Runnable print = () -> {
-			System.out.println("Heavy Load methods completed successfully");
-		};
+		Runnable print = () -> System.out.println("Heavy Load methods completed successfully");
 
 		CompletableFuture<Void> combinedFunction = asyncFunction1.runAfterBoth(asyncFunction2, print);
 
 		combinedFunction.get();
 	}
 
+	final static String REPORT = "2013 Toyota Corolla";
+
 	public static void completableFutureWithAcceptEither() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an car details
-		Supplier<String> carfax = () -> {
-			return "2013 Toyota Corolla";
-		};
+		Supplier<String> carfax = () -> REPORT;
 
 		// Heavy computation which eventually returns an car details
-		Supplier<String> autocheck = () -> {
-			return "2013 Toyota Corolla";
-		};
+		Supplier<String> autocheck = () -> REPORT;
 
 		CompletableFuture<String> carfaxResult = CompletableFuture.supplyAsync(carfax);
 		CompletableFuture<String> autocheckResult = CompletableFuture.supplyAsync(autocheck);
 
-		Consumer<String> carDetails = (car) -> {
-			System.out.println("Car details: " + car);
-		};
+		Consumer<String> carDetails = (car) -> System.out.println("Car details: " + car);
 
 		CompletableFuture<Void> either = carfaxResult.acceptEither(autocheckResult, carDetails);
 
