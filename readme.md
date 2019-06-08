@@ -24,5 +24,5 @@ The tutorial related to this project can be found on [Codeaches Website]
 [CircleCI badge]: https://circleci.com/gh/codeaches/java-8-examples.svg?style=svg
 [CircleCI]: https://circleci.com/gh/codeaches/java-8-examples
 
-[Quality Gate Status badge]: https://sonarcloud.io/api/project_badges/measure?project=com.codeaches%3Ajava-8-examples&metric=alert_status
-[Quality Gate]: https://sonarcloud.io/dashboard?id=com.codeaches%3Ajava-8-examples
+[Quality Gate Status badge]: https://sonarcloud.io/api/project_badges/measure?project=java-8-examples&metric=alert_status
+[Quality Gate]: https://sonarcloud.io/dashboard?id=java-8-examples
