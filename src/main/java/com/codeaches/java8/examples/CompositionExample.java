@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 
 public class CompositionExample {
 
+	private static final String TOYOTA = "Toyota";
+	private static final String MERCEDES = "Mercedes";
+
 	public static void main(String[] args) {
 
 		Function<Integer, Integer> sum = x -> x + x;
@@ -38,15 +41,15 @@ public class CompositionExample {
 
 		// Costliest Toyota Car
 		BiFunction<String, List<Car>, Optional<Car>> highestByCarType = byManufacturer.andThen(costliest);
-		Optional<Car> costliestToyotaCar = highestByCarType.apply("Toyota", cars);
+		Optional<Car> costliestToyotaCar = highestByCarType.apply(TOYOTA, cars);
 		System.out.println(costliestToyotaCar.isPresent() ? costliestToyotaCar.get() : null);
 	}
 
 	static List<Car> cars = new ArrayList<>();
 
 	static {
-		cars.add(new Car("Toyota", "Corolla", 2013, Double.valueOf(21000.00)));
-		cars.add(new Car("Toyota", "Camry", 2018, Double.valueOf(24000.00)));
-		cars.add(new Car("Mercedes", "Benz", 2019, Double.valueOf(40000.00)));
+		cars.add(new Car(TOYOTA, "Corolla", 2013, Double.valueOf(21000.00)));
+		cars.add(new Car(TOYOTA, "Camry", 2018, Double.valueOf(24000.00)));
+		cars.add(new Car(MERCEDES, "Benz", 2019, Double.valueOf(40000.00)));
 	}
 }

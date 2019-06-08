@@ -1,6 +1,7 @@
 package com.codeaches.java8.examples;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -8,7 +9,7 @@ import java.util.function.Supplier;
 
 public class CompletableFutureExample {
 
-	public static void basicCompletableFuture() throws Exception {
+	public static void basicCompletableFuture() throws InterruptedException, ExecutionException {
 
 		// Some heavy computation which eventually returns an Integer
 		Supplier<Integer> heavyMethod = () -> {
@@ -22,7 +23,7 @@ public class CompletableFutureExample {
 		System.out.println(result);
 	}
 
-	public static void completableFutureWithCallback() throws Exception {
+	public static void completableFutureWithCallback() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
 		Supplier<Integer> heavyMethod = () -> {
@@ -39,7 +40,7 @@ public class CompletableFutureExample {
 		asyncFunction.get();
 	}
 
-	public static void completableFutureWithCallbackChain() throws Exception {
+	public static void completableFutureWithCallbackChain() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
 		Supplier<Integer> heavyMethod = () -> {
@@ -62,7 +63,7 @@ public class CompletableFutureExample {
 		asyncFunction.get();
 	}
 
-	public static void completableFutureWithParallelCallbacks() throws Exception {
+	public static void completableFutureWithParallelCallbacks() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
 		Supplier<Integer> heavyMethod = () -> {
@@ -92,7 +93,8 @@ public class CompletableFutureExample {
 		asyncFunction.get();
 	}
 
-	public static void completableFutureExceptionHandlerUsing_exceptionally_() throws Exception {
+	public static void completableFutureExceptionHandlerUsing_exceptionally_()
+			throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually throws NULL POINTER EXCEPTION
 		Supplier<String> heavyMethod = () -> {
@@ -114,7 +116,8 @@ public class CompletableFutureExample {
 		asyncFunction.get();
 	}
 
-	public static void completableFutureExceptionHandlerUsing_whenComplete_() throws Exception {
+	public static void completableFutureExceptionHandlerUsing_whenComplete_()
+			throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually throws NULL POINTER EXCEPTION
 		Supplier<String> heavyMethod = () -> {
@@ -139,7 +142,7 @@ public class CompletableFutureExample {
 		asyncFunction.get();
 	}
 
-	public static void completableFutureWith_thenCombine_() throws Exception {
+	public static void completableFutureWith_thenCombine_() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
 		Supplier<Integer> heavyMethod1 = () -> {
@@ -168,7 +171,7 @@ public class CompletableFutureExample {
 		combinedFunction.get();
 	}
 
-	public static void completableFutureWith_runAfterBoth_() throws Exception {
+	public static void completableFutureWith_runAfterBoth_() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
 		Supplier<Integer> heavyMethod1 = () -> {
@@ -192,7 +195,7 @@ public class CompletableFutureExample {
 		combinedFunction.get();
 	}
 
-	public static void completableFutureWith_acceptEither_() throws Exception {
+	public static void completableFutureWith_acceptEither_() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an car details
 		Supplier<String> carfax = () -> {
@@ -216,7 +219,7 @@ public class CompletableFutureExample {
 		either.get();
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
 
 		basicCompletableFuture();
 		completableFutureWithCallback();

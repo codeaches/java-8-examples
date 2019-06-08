@@ -11,12 +11,15 @@ import java.util.stream.Collectors;
 
 public class CollectorsExample {
 
+	private static final String TOYOTA = "Toyota";
+	private static final String MERCEDES = "Mercedes";
+
 	public static void main(String[] args) {
 
 		/*------------------------------------------------
 		Filtering a Stream
 		------------------------------------------------*/
-		List<Car> toyotaCars = cars.stream().filter(car -> car.getManufacturer().equals("Toyota"))
+		List<Car> toyotaCars = cars.stream().filter(car -> car.getManufacturer().equals(TOYOTA))
 				.collect(Collectors.toList());
 
 		System.out.println(toyotaCars);
@@ -71,7 +74,7 @@ public class CollectorsExample {
 		/*------------------------------------------------
 		Partition the stream
 		------------------------------------------------*/
-		Predicate<Car> manufacturerPredicate = car -> car.getManufacturer().equals("Toyota");
+		Predicate<Car> manufacturerPredicate = car -> car.getManufacturer().equals(TOYOTA);
 
 		Map<Boolean, List<Car>> mapyByManufacturer = cars.stream()
 				.collect(Collectors.partitioningBy(manufacturerPredicate));
@@ -81,8 +84,8 @@ public class CollectorsExample {
 
 	static List<Car> cars = new ArrayList<>();
 	static {
-		cars.add(new Car("Toyota", "Corolla", 2013, Double.valueOf(21000.00)));
-		cars.add(new Car("Toyota", "Camry", 2018, Double.valueOf(24000.00)));
-		cars.add(new Car("Mercedes", "Benz", 2019, Double.valueOf(40000.00)));
+		cars.add(new Car(TOYOTA, "Corolla", 2013, Double.valueOf(21000.00)));
+		cars.add(new Car(TOYOTA, "Camry", 2018, Double.valueOf(24000.00)));
+		cars.add(new Car(MERCEDES, "Benz", 2019, Double.valueOf(40000.00)));
 	}
 }
