@@ -9,7 +9,10 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+	id "org.sonarqube" version "2.7.1"
 }
+
+apply plugin: "org.sonarqube"
 
 repositories {
     // Use jcenter for resolving your dependencies.
@@ -26,4 +29,6 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+	
+	classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7.1"
 }
