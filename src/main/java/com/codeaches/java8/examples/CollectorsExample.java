@@ -13,6 +13,9 @@ public class CollectorsExample {
 
 	private static final String TOYOTA = "Toyota";
 	private static final String MERCEDES = "Mercedes";
+	private static final String COROLLA = "Corolla";
+	private static final String CAMRY = "Camry";
+	private static final String BENZ = "Benz";
 
 	public static void main(String[] args) {
 
@@ -84,8 +87,8 @@ public class CollectorsExample {
 
 	static List<Car> cars = new ArrayList<>();
 	static {
-		cars.add(new Car(TOYOTA, "Corolla", 2013, Double.valueOf(21000.00)));
-		cars.add(new Car(TOYOTA, "Camry", 2018, Double.valueOf(24000.00)));
-		cars.add(new Car(MERCEDES, "Benz", 2019, Double.valueOf(40000.00)));
+		cars.add(new Car(TOYOTA, COROLLA, 2013, Double.valueOf(21000.00)));
+		cars.add(new Car(TOYOTA, CAMRY, 2018, Double.valueOf(24000.00)));
+		cars.add(new Car(MERCEDES, BENZ, 2019, Double.valueOf(40000.00)));
 	}
 }
