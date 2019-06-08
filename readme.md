@@ -1,6 +1,7 @@
 [![License MIT][MIT badge]][MIT]
 [![Travis Build][Travis badge]][Travis]
 [![CircleCI Build][CircleCI badge]][CircleCI]
+[![Quality Gate Status][Quality Gate Status badge]][Quality Gate]
 [![][Paypal Donate Img]][Paypal Donate Link]
 
 The **current** version of this project is licensed under [MIT].
@@ -22,3 +23,6 @@ The tutorial related to this project can be found on [Codeaches Website]
 
 [CircleCI badge]: https://circleci.com/gh/codeaches/java-8-examples.svg?style=svg
 [CircleCI]: https://circleci.com/gh/codeaches/java-8-examples
+
+[Quality Gate Status badge]: https://sonarcloud.io/api/project_badges/measure?project=com.codeaches%3Ajava-8-examples&metric=alert_status
+[Quality Gate]: https://sonarcloud.io/dashboard?id=com.codeaches%3Ajava-8-examples
