@@ -93,7 +93,7 @@ public class CompletableFutureExample {
 		asyncFunction.get();
 	}
 
-	public static void completableFutureExceptionHandlerUsing_exceptionally_()
+	public static void completableFutureExceptionHandlerUsingExceptionally()
 			throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually throws NULL POINTER EXCEPTION
@@ -116,7 +116,7 @@ public class CompletableFutureExample {
 		asyncFunction.get();
 	}
 
-	public static void completableFutureExceptionHandlerUsing_whenComplete_()
+	public static void completableFutureExceptionHandlerUsingwhenComplete()
 			throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually throws NULL POINTER EXCEPTION
@@ -142,7 +142,7 @@ public class CompletableFutureExample {
 		asyncFunction.get();
 	}
 
-	public static void completableFutureWith_thenCombine_() throws InterruptedException, ExecutionException {
+	public static void completableFutureWithThenCombine() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
 		Supplier<Integer> heavyMethod1 = () -> {
@@ -171,7 +171,7 @@ public class CompletableFutureExample {
 		combinedFunction.get();
 	}
 
-	public static void completableFutureWith_runAfterBoth_() throws InterruptedException, ExecutionException {
+	public static void completableFutureWithRunAfterBoth() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an Integer
 		Supplier<Integer> heavyMethod1 = () -> {
@@ -195,7 +195,7 @@ public class CompletableFutureExample {
 		combinedFunction.get();
 	}
 
-	public static void completableFutureWith_acceptEither_() throws InterruptedException, ExecutionException {
+	public static void completableFutureWithAcceptEither() throws InterruptedException, ExecutionException {
 
 		// Heavy computation which eventually returns an car details
 		Supplier<String> carfax = () -> {
@@ -225,10 +225,10 @@ public class CompletableFutureExample {
 		completableFutureWithCallback();
 		completableFutureWithCallbackChain();
 		completableFutureWithParallelCallbacks();
-		completableFutureExceptionHandlerUsing_exceptionally_();
-		completableFutureExceptionHandlerUsing_whenComplete_();
-		completableFutureWith_thenCombine_();
-		completableFutureWith_runAfterBoth_();
-		completableFutureWith_acceptEither_();
+		completableFutureExceptionHandlerUsingExceptionally();
+		completableFutureExceptionHandlerUsingwhenComplete();
+		completableFutureWithThenCombine();
+		completableFutureWithRunAfterBoth();
+		completableFutureWithAcceptEither();
 	}
 }
