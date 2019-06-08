@@ -19,4 +19,4 @@ addons:
   sonarcloud:
     organization: "codeaches-github"
 script:
-  - ./gradlew sonarqube
+  - ./gradlew -Dsonar.host.url=https:/sonarqube.com  -Dsonar.login=${SONARQUBE_TOKEN} sonarqube
