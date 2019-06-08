@@ -8,7 +8,12 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CompositionExample {
+
+	private static final Logger log = LoggerFactory.getLogger(CompositionExample.class);
 
 	private static final String TOYOTA = "Toyota";
 	private static final String MERCEDES = "Mercedes";
@@ -24,8 +29,8 @@ public class CompositionExample {
 		Integer sumAndSquareResult = sum.compose(square).apply(3);
 		Integer squareAndSumResult = sum.andThen(square).apply(3);
 
-		System.out.println("sum.compose(square): " + sumAndSquareResult);
-		System.out.println("sum.andThen(square): " + squareAndSumResult);
+		log.info("sum.compose(square): " + sumAndSquareResult);
+		log.info("sum.andThen(square): " + squareAndSumResult);
 
 		BiFunction<String, List<Car>, List<Car>> byManufacturer = (manufacturer, cars) -> cars.stream()
 				.filter(car -> car.getManufacturer().equals(manufacturer)).collect(Collectors.toList());
@@ -40,12 +45,12 @@ public class CompositionExample {
 		// Costliest Car
 		Function<List<Car>, Optional<Car>> costliest = first.compose(sortByPrice);
 		Optional<Car> costliestCar = costliest.apply(cars);
-		System.out.println(costliestCar.isPresent() ? costliestCar.get() : null);
+		log.info(costliestCar.isPresent() ? costliestCar.get().toString() : null);
 
 		// Costliest Toyota Car
 		BiFunction<String, List<Car>, Optional<Car>> highestByCarType = byManufacturer.andThen(costliest);
 		Optional<Car> costliestToyotaCar = highestByCarType.apply(TOYOTA, cars);
-		System.out.println(costliestToyotaCar.isPresent() ? costliestToyotaCar.get() : null);
+		log.info(costliestToyotaCar.isPresent() ? costliestToyotaCar.get().toString() : null);
 	}
 
 	static List<Car> cars = new ArrayList<>();

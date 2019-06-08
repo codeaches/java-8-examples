@@ -7,7 +7,12 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class CompletableFutureExample {
+
+	private static final Logger log = LoggerFactory.getLogger(CompletableFutureExample.class);
 
 	public static void basicCompletableFuture() throws InterruptedException, ExecutionException {
 
@@ -18,7 +23,7 @@ public class CompletableFutureExample {
 
 		/* Print the result returned by heavyMethod */
 		Integer result = asyncFunction.get();
-		System.out.println(result);
+		log.info(result.toString());
 	}
 
 	public static void completableFutureWithCallback() throws InterruptedException, ExecutionException {
@@ -27,7 +32,7 @@ public class CompletableFutureExample {
 		Supplier<Integer> heavyMethod = () -> 10;
 
 		// Print the request
-		Consumer<Integer> printer = x -> System.out.println(x);
+		Consumer<Integer> printer = x -> log.info(x.toString());
 
 		CompletableFuture<?> asyncFunction = CompletableFuture.supplyAsync(heavyMethod).thenAccept(printer);
 
@@ -43,7 +48,7 @@ public class CompletableFutureExample {
 		Function<Integer, Integer> multiply = x -> x * x;
 
 		// Print the request
-		Consumer<Integer> printer = x -> System.out.println(x);
+		Consumer<Integer> printer = x -> log.info(x.toString());
 
 		CompletableFuture<?> asyncFunction = CompletableFuture.supplyAsync(heavyMethod).thenApply(multiply)
 				.thenAccept(printer);
@@ -63,7 +68,7 @@ public class CompletableFutureExample {
 		Function<Integer, Integer> multiply = x -> x * x;
 
 		// Print the request
-		Consumer<Integer> printer = x -> System.out.println(x);
+		Consumer<Integer> printer = x -> log.info(x.toString());
 
 		CompletableFuture<Integer> asyncFunction = CompletableFuture.supplyAsync(heavyMethod);
 
@@ -80,7 +85,7 @@ public class CompletableFutureExample {
 		Supplier<String> heavyMethod = () -> ((String) null).toUpperCase();
 
 		// Print the message
-		Consumer<String> printer = x -> System.out.println("PRINT MSG: " + x);
+		Consumer<String> printer = x -> log.info("PRINT MSG: " + x);
 
 		CompletableFuture<Void> asyncFunction = CompletableFuture.supplyAsync(heavyMethod)
 
@@ -100,7 +105,7 @@ public class CompletableFutureExample {
 
 		// Print the message
 		Consumer<String> printer = x -> {
-			System.out.println("PRINT MSG: " + x);
+			log.info("PRINT MSG: " + x);
 		};
 
 		CompletableFuture<Void> asyncFunction = CompletableFuture.supplyAsync(heavyMethod)
@@ -123,7 +128,7 @@ public class CompletableFutureExample {
 		Supplier<Integer> heavyMethod2 = () -> 15;
 
 		// Print the request
-		Consumer<Integer> printer = x -> System.out.println(x);
+		Consumer<Integer> printer = x -> log.info(x.toString());
 
 		CompletableFuture<Integer> asyncFunction1 = CompletableFuture.supplyAsync(heavyMethod1);
 		CompletableFuture<Integer> asyncFunction2 = CompletableFuture.supplyAsync(heavyMethod2);
@@ -148,7 +153,7 @@ public class CompletableFutureExample {
 		CompletableFuture<Integer> asyncFunction1 = CompletableFuture.supplyAsync(heavyMethod1);
 		CompletableFuture<Integer> asyncFunction2 = CompletableFuture.supplyAsync(heavyMethod2);
 
-		Runnable print = () -> System.out.println("Heavy Load methods completed successfully");
+		Runnable print = () -> log.info("Heavy Load methods completed successfully");
 
 		CompletableFuture<Void> combinedFunction = asyncFunction1.runAfterBoth(asyncFunction2, print);
 
@@ -168,7 +173,7 @@ public class CompletableFutureExample {
 		CompletableFuture<String> carfaxResult = CompletableFuture.supplyAsync(carfax);
 		CompletableFuture<String> autocheckResult = CompletableFuture.supplyAsync(autocheck);
 
-		Consumer<String> carDetails = car -> System.out.println("Car details: " + car);
+		Consumer<String> carDetails = car -> log.info("Car details: " + car);
 
 		CompletableFuture<Void> either = carfaxResult.acceptEither(autocheckResult, carDetails);
 

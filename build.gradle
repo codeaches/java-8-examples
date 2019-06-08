@@ -26,6 +26,11 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:26.0-jre'
 
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile group: 'org.slf4j', name:'slf4j-api', version: '1.7.2'
+    compile group: 'ch.qos.logback', name:'logback-classic', version: '1.0.9'
+    compile group: 'ch.qos.logback', name:'logback-core', version: '1.0.9'
+
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
