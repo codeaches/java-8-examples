@@ -62,11 +62,11 @@ public class CollectorsExample {
 		Comparator<Car> costliestCarComparator = (car1, car2) -> Double.compare(car1.getPrice(), car2.getPrice());
 		Optional<Car> costliestCar = cars.stream().collect(Collectors.maxBy(costliestCarComparator));
 
-		System.out.println(costliestCar.get());
+		System.out.println(costliestCar.isPresent() ? costliestCar.get() : null);
 
 		Optional<Car> cheapestCar = cars.stream().collect(Collectors.minBy(costliestCarComparator));
 
-		System.out.println(cheapestCar.get());
+		System.out.println(cheapestCar.isPresent() ? cheapestCar.get() : null);
 
 		/*------------------------------------------------
 		Concatenate
