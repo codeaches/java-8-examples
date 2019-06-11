@@ -8,6 +8,8 @@ The **current** version of this project is licensed under [MIT].
 
 ## Relevant documents
 
+[![Join the chat at https://gitter.im/Codeaches/java-8-examples](https://badges.gitter.im/Codeaches/java-8-examples.svg)](https://gitter.im/Codeaches/java-8-examples?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The tutorial related to this project can be found on [Codeaches Website]
 
 [MIT badge]: https://img.shields.io/:license-MIT%202.0-blue.svg
