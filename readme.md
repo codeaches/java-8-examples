@@ -10,6 +10,8 @@ The **current** version of this project is licensed under [MIT].
 
 The tutorial related to this project can be found on [Codeaches Website]
 
+[![Gitter Chat][Gitter badge]][Gitter]
+
 [MIT badge]: https://img.shields.io/:license-MIT%202.0-blue.svg
 [MIT]: https://opensource.org/licenses/mit-license.php
 
@@ -26,3 +28,6 @@ The tutorial related to this project can be found on [Codeaches Website]
 
 [Quality Gate Status badge]: https://sonarcloud.io/api/project_badges/measure?project=java-8-examples&metric=alert_status
 [Quality Gate]: https://sonarcloud.io/dashboard?id=java-8-examples
+
+[Gitter badge]: https://badges.gitter.im/Codeaches/java-8-examples.svg
+[Gitter]: https://gitter.im/Codeaches/java-8-examples?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
